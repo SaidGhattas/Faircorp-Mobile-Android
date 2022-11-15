@@ -13,7 +13,6 @@
         android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         android:capitalize="characters"
-        android:text="Name"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/building_number"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +25,6 @@
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:capitalize="characters"
-        android:text="Building"
         app:layout_constraintBottom_toTopOf="@+id/btn_window"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/room_name" />
@@ -61,7 +59,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Windows"
+        android:text="@string/act_room_windows"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/building_number" />
@@ -73,7 +71,7 @@
         android:layout_marginStart="180dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
-        android:text="Heaters"
+        android:text="@string/act_room_heaters"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/target_temperature" />
