@@ -19,7 +19,7 @@ class RoomActivity : BasicActivity() {
 
         val id = intent.getLongExtra(MainActivity.ROOM_ID, 0)
         val name = findViewById<EditText>(R.id.edit_room_name)
-//        val buildingId = intent.getLongExtra(MainActivity.BUILDING_ID, 0)
+        val buildingId = intent.getLongExtra(MainActivity.BUILDING_ID, 0)
         val newBuildingId = findViewById<EditText>(R.id.edit_room_building)
         val currentTemperature = findViewById<EditText>(R.id.edit_room_current_temp)
         val targetTemperature = findViewById<EditText>(R.id.edit_room_target_temp)
@@ -35,7 +35,7 @@ class RoomActivity : BasicActivity() {
                 RoomDto(
                     id = it1,
                     name,
-                    newBuildingId,
+                    if (newBuildingId == 0L) buildingId else newBuildingId,
                     currentTemperature,
                     targetTemperature
                 )
