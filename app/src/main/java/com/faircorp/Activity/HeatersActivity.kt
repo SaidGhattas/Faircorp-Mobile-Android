@@ -3,6 +3,7 @@ package com.faircorp.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.recyclerview.widget.DividerItemDecoration
@@ -25,13 +26,19 @@ class HeatersActivity : BasicActivity(), OnHeaterSelectedListener
 
         val recyclerView = findViewById<RecyclerView>(R.id.list_heaters) // (2)
         val adapter = HeaterAdapter(this) // (3)
+        val roomID = intent.getLongExtra(MainActivity.ROOM_ID, 0)
+
+        val createBtn: Button = findViewById(R.id.btn_heater_create)
+        createBtn.setOnClickListener {
+            val intent = Intent(this, HeaterActivity::class.java).putExtra(MainActivity.ROOM_ID, roomID)
+            startActivity(intent)
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
-        val roomID = intent.getLongExtra(MainActivity.ROOM_ID, 0)
         Log.i("HeaterActivity","Room ID: $roomID")
 
         viewModel.findByRoomId(roomID).observe(this) { heaters ->

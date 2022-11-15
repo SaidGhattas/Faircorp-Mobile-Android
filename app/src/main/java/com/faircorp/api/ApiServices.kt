@@ -9,6 +9,7 @@ import retrofit2.converter.moshi.MoshiConverterFactory
 object ApiServices {
     const val API_USERNAME = "user"
     const val API_PASSWORD = "password"
+    const val API_URL = "http://saidghattas.cleverapps.io/api/"
     val windowsApiService : WindowApiService by lazy {
         val client = OkHttpClient.Builder()
             .addInterceptor(BasicAuthInterceptor(API_USERNAME, API_PASSWORD))
@@ -17,7 +18,7 @@ object ApiServices {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
-            .baseUrl("http://saidghattas.cleverapps.io/api/")
+            .baseUrl(API_URL)
             .build()
             .create(WindowApiService::class.java)
     }
@@ -29,7 +30,7 @@ object ApiServices {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
-            .baseUrl("http://saidghattas.cleverapps.io/api/")
+            .baseUrl(API_URL)
             .build()
             .create(RoomApiService::class.java)
     }
@@ -41,7 +42,7 @@ object ApiServices {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
-            .baseUrl("http://saidghattas.cleverapps.io/api/")
+            .baseUrl(API_URL)
             .build()
             .create(BuildingApiService::class.java)
     }
@@ -53,7 +54,7 @@ object ApiServices {
         Retrofit.Builder()
             .addConverterFactory(MoshiConverterFactory.create())
             .client(client)
-            .baseUrl("http://saidghattas.cleverapps.io/api/")
+            .baseUrl(API_URL)
             .build()
             .create(HeaterApiService::class.java)
     }

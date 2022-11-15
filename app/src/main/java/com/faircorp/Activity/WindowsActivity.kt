@@ -2,6 +2,7 @@ package com.faircorp.Activity
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Button
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.lifecycleScope
@@ -28,13 +29,20 @@ class WindowsActivity : BasicActivity(), OnWindowSelectedListener {
 
         val recyclerView = findViewById<RecyclerView>(R.id.list_windows) // (2)
         val adapter = WindowAdapter(this) // (3)
+        val roomID = intent.getLongExtra(MainActivity.ROOM_ID, 0)
+
+        val createBtn: Button = findViewById(R.id.btn_window_create)
+        createBtn.setOnClickListener {
+            val intent = Intent(this, WindowActivity::class.java).putExtra(MainActivity.ROOM_ID, roomID)
+            startActivity(intent)
+        }
 
         recyclerView.layoutManager = LinearLayoutManager(this)
         recyclerView.addItemDecoration(DividerItemDecoration(this, DividerItemDecoration.VERTICAL))
         recyclerView.setHasFixedSize(true)
         recyclerView.adapter = adapter
 
-        viewModel.findByRoomId(intent.getLongExtra(MainActivity.ROOM_ID,0)).observe(this) { windows ->
+        viewModel.findByRoomId(roomID).observe(this) { windows ->
             adapter.update(windows)
             viewModel.networkState.observe(this) { state ->
                 if(state == State.OFFLINE) {
