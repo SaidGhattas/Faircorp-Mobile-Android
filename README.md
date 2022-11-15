@@ -21,6 +21,7 @@ This project is an Android application that allows to control the temperature of
 - Each Room can be clicked on to go to the room activity be edited
 - Each Room has two buttons to go to the window activity or the heater activity
 - Each Room shows its current and target temperature of a room
+- Create button to create a new Room
 
 ### Windows activity:
 
@@ -28,6 +29,7 @@ This project is an Android application that allows to control the temperature of
 - Each Window can be clicked on to go to the window activity to be edited
 - Each Window has a switch to open or close the window
 - Each Window shows its current status
+- Create button to create a new Window
 
 ### Heaters activity:
 
@@ -35,6 +37,7 @@ This project is an Android application that allows to control the temperature of
 - Each Heater can be clicked on to go to the heater activity to be edited
 - Each Heater has a switch to turn on or off the heater
 - Each Heater shows its current status
+- Create button to create a new Heater
 
 ### Room, Window, Heater activities:
 
